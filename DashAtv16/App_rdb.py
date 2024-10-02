@@ -1,3 +1,6 @@
+# Tratamento de exceções
+try:
+    
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -187,4 +190,7 @@ col4.plotly_chart(fig_alu_fil)
 st.subheader(":blue[Base de dados filtrada]", divider="gray")
 #st.write(dados_filtro )
 st.dataframe(dados_filtro.style.highlight_max(axis=0))
+
+except ValueError:
+    st.error('Seus critérios de filtro não retornaram nenhuma combinação válida na base de dados atual, por gentileza atualize a página e tente outras combinações', icon="🚨")
 
