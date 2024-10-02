@@ -13,7 +13,7 @@ st.subheader(":gray[Aluno: Renato David Brito]")
 st.subheader(":gray[Matrícula: 20242001475]", divider="gray")
 # Importação e tratamento inicial dos dados
 
-dados = pd.read_csv("Dados/houses_to_rent_v2.csv")
+dados = pd.read_csv("DashAtv16/Dados/houses_to_rent_v2.csv")
 
 # Traduzindo os títulos do dataframe
 
