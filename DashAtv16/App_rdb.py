@@ -17,7 +17,7 @@ try:
     st.subheader(":gray[Matrícula: 20242001475]", divider="gray")
     # Importação e tratamento inicial dos dados
 
-    dados = pd.read_csv("DashAtv16/Dados/houses_to_rent_v2.csv")
+    dados = pd.read_csv("/home/renato/PycharmProjects/DashAtv16/Dados/houses_to_rent_v2.csv")
 
     # Traduzindo os títulos do dataframe
 
@@ -56,6 +56,7 @@ try:
 
         st.write("Selecione as opções abaixo para visualizar:")
 
+        cidade = st.multiselect("Cidade", options=dados_br["Cidade"].unique(), default=dados_br["Cidade"].unique())
         mobiliado = st.selectbox("Imóvel Mobiliado?", options=dados_br["Mobiliado"].unique())
         aceita_animais = st.selectbox("Aceita Animais?", options=dados_br["Permite Animais"].unique())
         faixa_preço = st.selectbox("Escolha a faixa de preços de aluguel",
@@ -66,6 +67,7 @@ try:
     # Filtrar os dados com base nas seleções
 
     dados_filtro = dados_br[
+        (dados_br["Cidade"].isin(cidade)) &
         (dados_br["Mobiliado"] == (mobiliado)) &
         (dados_br["Permite Animais"] == (aceita_animais)) &
         (dados_br["Faixas de Preço"] == (faixa_preço)) &
