@@ -17,7 +17,7 @@ try:
     st.subheader(":gray[Matrícula: 20242001475]", divider="gray")
     # Importação e tratamento inicial dos dados
 
-    dados = pd.read_csv("DashAtv16/Dados/houses_to_rent_v2.csv")
+    dados = pd.read_csv("/home/renato/PycharmProjects/DashAtv16/Dados/houses_to_rent_v2.csv")
 
     # Traduzindo os títulos do dataframe
 
@@ -184,10 +184,13 @@ try:
     col2.plotly_chart(fig_alu)
     col4.plotly_chart(fig_alu_fil)
 
+# Apresentar a tabela
+
     st.subheader(":blue[Base de dados filtrada]", divider="gray")
     #st.write(dados_filtro )
-    st.dataframe(dados_filtro.style.highlight_max(axis=0))
+    st.dataframe(dados_filtro.style.highlight_max(axis=0, color="#0096FF"))
 
+#st.dataframe(dados_filtro.style.highlight_max(axis=0, color="blue"))
 except:
     st.error(
         'Seus critérios de filtro não retornaram nenhuma combinação válida na base de dados atual, por gentileza atualize a página e tente outras combinações.',
